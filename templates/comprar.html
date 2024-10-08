@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compra de {{ producto['nombre'] }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>Comprar {{ producto['nombre'] }}</h1>
+    <p>Precio: {{ producto['precio'] }} USD</p>
+
+    <h3>Métodos de Pago:</h3>
+    <form method="POST" action="/comprar">
+        <select name="metodo_pago">
+            <option value="tarjeta">Tarjeta de crédito</option>
+            <option value="mp_qr">Mercado Pago</option>
+            <option value="transferencia">Transferencia bancaria</option>
+        </select>
+        <button type="submit">Confirmar compra</button>
+    </form>
+    <a href="/">Volver a la tienda</a>
+</body>
+</html>

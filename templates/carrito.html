@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrito de Compras</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f8f8;
+            color: black; /* Cambiar el color del texto a negro */
+            text-align: center; /* Centrar el texto */
+        }
+        h1 {
+            margin: 20px 0;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            background-color: white;
+            margin: 10px auto;
+            padding: 10px;
+            border-radius: 5px;
+            width: 300px; /* Ancho fijo para las tarjetas de los productos */
+            display: flex;
+            align-items: center; /* Alinear verticalmente */
+            justify-content: center; /* Centrar contenido horizontalmente */
+        }
+        img {
+            width: 60px; /* Tamaño pequeño para la imagen */
+            height: auto;
+            margin-right: 10px; /* Espaciado a la derecha de la imagen */
+        }
+        button {
+            background-color: red; /* Botón rojo */
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        a {
+            display: inline-block;
+            margin-top: 20px;
+            text-decoration: none;
+            color: blue; /* Color del enlace */
+        }
+    </style>
+</head>
+<body>
+    <h1>Tu Carrito de Compras</h1>
+    
+    {% if carrito %}
+        <ul>
+            {% for item in carrito %}
+                <li>
+                    <img src="{{ url_for('static', filename=item['producto']['imagen']) }}" alt="{{ item['producto']['nombre'] }}">
+                    <div style="text-align: left;">
+                        <h2>{{ item['producto']['nombre'] }}</h2>
+                        <p>Talle: {{ item['talle'] }}</p>
+                        <p>Precio: {{ item['producto']['precio'] }} $</p>
+                    </div>
+                    <form action="/eliminar/{{ loop.index0 }}" method="POST">
+                        <button type="submit">Eliminar</button>
+                    </form>
+                </li>
+            {% endfor %}
+        </ul>
+        <p><strong>Total: {{ total }} $</strong></p>
+        <a href="/finalizar-compra">Finalizar Compra</a>
+    {% else %}
+        <p>No hay productos en tu carrito.</p>
+    {% endif %}
+    
+    <a href="/">Seguir Comprando</a>
+</body>
+</html>

@@ -1,0 +1,74 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4; /* Color de fondo si la imagen no carga */
+    background-image: url("/static/fondo.jpg"); /* Asegúrate de que esta ruta sea correcta */
+    background-size: cover; /* Cubre toda la pantalla */
+    background-position: center; /* Centra la imagen */
+    background-attachment: fixed; /* Mantiene la imagen fija al hacer scroll */
+    background-repeat: no-repeat; /* No repite la imagen */
+    color: black; /* Cambia el color de las letras a negro */
+}
+
+header {
+    background-color: rgba(0, 0, 0, 0.7); /* Fondo semi-transparente para el header */
+    color: #fff; /* Color de texto en blanco para el header */
+    padding: 10px 0;
+}
+
+h1 {
+    text-align: center;
+    padding: 20px; /* Espacio alrededor del h1 */
+    background-color: #1733119f(255, 255, 255, 0.151); /* Fondo blanco semi-transparente */
+    border-radius: 10px; /* Bordes redondeados para el h1 */
+}
+
+nav {
+    text-align: center;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: #fff; /* Color de los enlaces del menú en blanco */
+    text-decoration: none;
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
+}
+
+.productos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 20px;
+}
+
+.producto {
+    background: white;
+    border: 1px solid #ddd;
+    margin: 10px;
+    padding: 10px;
+    text-align: center;
+    width: 100px;
+}
+
+.producto img {
+    max-width: 100%;
+    height: auto;
+}
+
+.producto h2 {
+    font-size: 1.2em;
+    color: black; /* Asegúrate de que el color del h2 sea negro */
+}

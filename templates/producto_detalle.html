@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>{{ producto['nombre'] }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>{{ producto['nombre'] }}</h1>
+    <img src="../static/img/{{producto['imagen'] }}" alt="{{ producto['nombre'] }}">
+    <p>Precio: {{ producto['precio'] }} $</p>
+    <p>{{ producto['descripcion'] }}</p>
+    
+    {% if producto['disponible'] %}
+        <p><strong>Disponibilidad:</strong> En stock</p>
+        <form method="POST">
+            <label for="talle">Selecciona tu talle:</label>
+            <select name="talle" id="talle" required>
+                {% for talle in producto['talles'] %}
+                <option value="{{ talle }}">{{ talle }}</option>
+                {% endfor %}
+            </select>
+            <button type="submit">Agregar al carrito</button>
+        </form>
+    {% else %}
+        <p><strong>Disponibilidad:</strong> No disponible</p>
+    {% endif %}
+
+    <a href="/">Volver a la tienda</a>
+</body>
+</html>

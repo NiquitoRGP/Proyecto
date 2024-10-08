@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paga con Mercado Pago</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>Paga con Mercado Pago</h1>
+    <p>Escanea el código QR a continuación para completar tu compra.</p>
+
+    <!--QR simulado -->
+    <img src="{{ url_for('static', filename='qr.png') }}" alt="Código QR para Mercado Pago" style="max-width: 300px;">
+
+    <p>O visita el siguiente enlace para pagar: <a href="https://www.mercadopago.com.ar/">Mercado Pago</a></p>
+
+    <a href="/">Volver a la tienda</a>
+</body>
+</html>

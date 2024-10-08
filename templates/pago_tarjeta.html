@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paga con Tarjeta de Crédito</title>
+</head>
+<body>
+    <h1>Paga con Tarjeta de Crédito</h1>
+    <form method="POST" action="">
+        <label for="tarjeta">Número de tarjeta:</label>
+        <input type="text" id="tarjeta" name="tarjeta" required>
+        
+        <label for="fecha">Fecha de expiración:</label>
+        <input type="text" id="fecha" name="fecha" required placeholder="MM/AA">
+        
+        <label for="cvv">CVV:</label>
+        <input type="text" id="cvv" name="cvv" required>
+        
+        <button type="submit">Pagar</button>
+    </form>
+
+    <a href="/">Volver a la tienda</a>
+</body>
+</html>
